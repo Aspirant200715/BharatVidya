@@ -2,11 +2,6 @@
 
 **Transforming Rural Education Through Offline-First AI**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Android](https://img.shields.io/badge/Android-8.0%2B-green.svg)](https://www.android.com/)
-[![React Native](https://img.shields.io/badge/React%20Native-0.72-blue.svg)](https://reactnative.dev/)
-[![AWS](https://img.shields.io/badge/AWS-Batch%20%7C%20S3%20%7C%20CloudFront-orange.svg)](https://aws.amazon.com/)
-
 > An offline-first, AI-powered educational platform that converts text (NCERT, Wikipedia) into 2-minute regional language video lessons for rural India. Works on 2GB RAM devices with 2G networks at 33x lower cost than competitors.
 
 ---
@@ -17,13 +12,9 @@
 - [Solution Overview](#-solution-overview)
 - [Key Features](#-key-features)
 - [Technical Architecture](#-technical-architecture)
-- [Getting Started](#-getting-started)
-- [Project Structure](#-project-structure)
 - [User Journeys](#-user-journeys)
-- [Performance Metrics](#-performance-metrics)
+- [Performance Targets](#-performance-targets)
 - [Competitive Advantages](#-competitive-advantages)
-- [Contributing](#-contributing)
-- [License](#-license)
 
 ---
 
@@ -189,163 +180,7 @@ BharatVidya is an **offline-first educational video generation platform** design
 
 ---
 
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js 16+ and npm/yarn
-- Python 3.8+
-- Android Studio (for mobile development)
-- AWS Account (for cloud deployment)
-- Docker (optional, for containerization)
-
-### Installation
-
-#### 1. Clone the Repository
-
-```bash
-git clone https://github.com/bharatvidya/bharatvidya.git
-cd bharatvidya
-```
-
-#### 2. Install Dependencies
-
-**Backend:**
-```bash
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install Python dependencies
-pip install -r requirements.txt
-
-# For GPU workers
-pip install -r requirements-gpu.txt
-
-# For mobile development
-pip install -r requirements-mobile.txt
-```
-
-**Mobile App:**
-```bash
-cd mobile
-npm install
-# or
-yarn install
-```
-
-#### 3. Download ML Models
-
-```bash
-# Download quantized models
-python scripts/download_models.py --model gemma-2b --quantization 4bit
-python scripts/download_models.py --model indicbert --languages all
-```
-
-#### 4. Configure Environment
-
-```bash
-# Copy environment template
-cp .env.example .env
-
-# Edit .env with your configuration
-# - AWS credentials
-# - Database URLs
-# - API keys
-```
-
-#### 5. Run Development Server
-
-**Backend API:**
-```bash
-uvicorn bharatvidya.api.main:app --reload --host 0.0.0.0 --port 8000
-```
-
-**Mobile App:**
-```bash
-cd mobile
-npm run android  # For Android
-# or
-yarn android
-```
-
-### Docker Setup (Recommended)
-
-```bash
-# Start all services
-docker-compose up -d
-
-# View logs
-docker-compose logs -f
-
-# Stop services
-docker-compose down
-```
-
----
-
-## 📁 Project Structure
-
-```
-bharatvidya/
-├── .kiro/
-│   └── specs/
-│       └── rural-education-video-app/
-│           ├── requirements.md      # Detailed requirements
-│           ├── design.md            # UI/UX and architecture design
-│           └── tasks.md             # Implementation tasks
-├── api/                             # FastAPI backend
-│   ├── main.py
-│   ├── models/
-│   ├── routes/
-│   └── services/
-├── mobile/                          # React Native mobile app
-│   ├── src/
-│   │   ├── screens/
-│   │   ├── components/
-│   │   ├── services/
-│   │   └── navigation/
-│   ├── android/
-│   └── ios/
-├── ml/                              # ML models and inference
-│   ├── models/
-│   │   ├── gemma-2b/
-│   │   └── indicbert/
-│   ├── inference/
-│   └── training/
-├── cloud/                           # Cloud workers and services
-│   ├── workers/
-│   │   ├── wav2lip_worker.py
-│   │   └── avatar_worker.py
-│   ├── batch/
-│   └── lambda/
-├── infrastructure/                  # AWS CloudFormation templates
-│   ├── bharatvidya-stack.yaml
-│   └── batch-config.yaml
-├── scripts/                         # Deployment and utility scripts
-│   ├── download_models.py
-│   ├── deploy.py
-│   └── setup_batch_workers.py
-├── tests/                           # Test suites
-│   ├── unit/
-│   ├── integration/
-│   └── property/
-├── docker/                          # Docker configurations
-│   ├── Dockerfile.backend
-│   ├── Dockerfile.gpu
-│   └── docker-compose.yml
-├── docs/                            # Documentation
-├── requirements.txt                 # Python dependencies
-├── requirements-gpu.txt             # GPU worker dependencies
-├── requirements-mobile.txt          # Mobile development dependencies
-├── setup.py                         # Package setup
-├── pyproject.toml                   # Project configuration
-└── README.md                        # This file
-```
-
----
-
-## 👥 User Journeys
+## � User Journeyse
 
 ### Student's 24-Hour Learning Cycle
 
@@ -408,40 +243,40 @@ bharatvidya/
 
 ---
 
-## 📊 Performance Metrics
+## 📊 Performance Targets
 
-### Technical Performance
+### Technical Performance Goals
 
-| Metric | Target | Actual |
-|--------|--------|--------|
-| App Startup Time | < 5s | 4.2s |
-| Model Inference | < 10s | 8.5s |
-| Video Generation | < 5 min | 4.5 min |
-| Sync Data Usage | < 2KB | 1.8KB |
-| Initial Install Size | 45MB | 43MB |
-| Memory Usage (2GB RAM) | < 600MB | 520MB |
-| Crash Rate | < 0.1% | 0.08% |
-| Sync Success Rate | > 99% | 99.4% |
+| Metric | Target |
+|--------|--------|
+| App Startup Time | < 5 seconds |
+| Model Inference | < 10 seconds |
+| Video Generation | < 5 minutes |
+| Sync Data Usage | < 2KB per operation |
+| Initial Install Size | 45MB |
+| Memory Usage (2GB RAM) | < 600MB |
+| Crash Rate | < 0.1% |
+| Sync Success Rate | > 99% |
 
-### Business Metrics
+### Business Goals
 
-| Metric | Target | Status |
-|--------|--------|--------|
-| Cost per User | ₹89/year | ✅ Achieved |
-| Infrastructure Scaling | 1.2x cost for 10x users | ✅ Sub-linear |
-| User Acquisition Cost | < ₹50 | ₹42 |
-| Monthly Retention | 80% | 83% |
-| Daily Active Users | 60% | 65% |
+| Metric | Target |
+|--------|--------|
+| Cost per User | ₹89/year |
+| Infrastructure Scaling | 1.2x cost for 10x users |
+| User Acquisition Cost | < ₹50 |
+| Monthly Retention | 80% |
+| Daily Active Users | 60% |
 
-### Educational Impact
+### Educational Impact Goals
 
-| Metric | Target | Result |
-|--------|--------|--------|
-| Test Score Improvement | 25% | 28% |
-| Content Completion Rate | 80% | 85% |
-| Teacher Productivity | 5x increase | 6x increase |
-| Languages Supported | 12+ | 14 |
-| Rural Students Reached | 1M+ | On track |
+| Metric | Target |
+|--------|--------|
+| Test Score Improvement | 25% |
+| Content Completion Rate | 80% |
+| Teacher Productivity | 5x increase |
+| Languages Supported | 12+ |
+| Rural Students Reached | 1M+ in first year |
 
 ---
 
@@ -502,180 +337,13 @@ bharatvidya/
 
 ---
 
-## 🧪 Testing
+## 📚 Project Documentation
 
-### Run Tests
+For detailed technical specifications, please refer to:
 
-```bash
-# Unit tests
-pytest tests/unit/
-
-# Property-based tests
-pytest tests/property/ --hypothesis-profile=dev
-
-# Integration tests
-pytest tests/integration/
-
-# Mobile tests
-cd mobile
-npm test
-# or
-yarn test
-
-# End-to-end tests
-npm run test:e2e
-```
-
-### Code Quality
-
-```bash
-# Format code
-black bharatvidya/
-isort bharatvidya/
-
-# Lint
-flake8 bharatvidya/
-mypy bharatvidya/
-
-# Pre-commit hooks
-pre-commit install
-pre-commit run --all-files
-```
-
----
-
-## 🚢 Deployment
-
-### Production Deployment
-
-```bash
-# Build Docker images
-docker build -t bharatvidya/backend -f docker/Dockerfile.backend .
-docker build -t bharatvidya/gpu-worker -f docker/Dockerfile.gpu .
-
-# Deploy to AWS
-python scripts/deploy.py --environment production
-
-# Deploy CloudFormation stack
-aws cloudformation deploy \
-  --template-file infrastructure/bharatvidya-stack.yaml \
-  --stack-name bharatvidya-prod \
-  --capabilities CAPABILITY_IAM
-```
-
-### Mobile App Release
-
-```bash
-cd mobile
-
-# Android
-npm run build:android:release
-# or
-yarn build:android:release
-
-# Generate signed APK
-cd android
-./gradlew assembleRelease
-```
-
----
-
-## 🤝 Contributing
-
-We welcome contributions from the community! Please read our [Contributing Guidelines](CONTRIBUTING.md) before submitting pull requests.
-
-### Development Workflow
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-### Code of Conduct
-
-Please read our [Code of Conduct](CODE_OF_CONDUCT.md) to understand our community standards.
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 🙏 Acknowledgments
-
-- **SmolLM & Gemma Teams** for lightweight language models
-- **Wav2Lip & SadTalker Projects** for video synthesis technology
-- **ObjectBox** for high-performance local storage
-- **AWS** for cloud infrastructure support
-- **Indian Education Community** for feedback and support
-- **Rural Teachers & Students** for being our inspiration
-
----
-
-## 📞 Support & Contact
-
-### Documentation
-- 📖 Full Documentation: [docs.bharatvidya.org](https://docs.bharatvidya.org)
-- 📚 API Reference: [api.bharatvidya.org](https://api.bharatvidya.org)
-- 🎓 Tutorials: [learn.bharatvidya.org](https://learn.bharatvidya.org)
-
-### Community
-- 💬 Discord: [discord.gg/bharatvidya](https://discord.gg/bharatvidya)
-- 🐦 Twitter: [@BharatVidya](https://twitter.com/BharatVidya)
-- 📧 Email: support@bharatvidya.org
-
-### Issues & Bugs
-- 🐛 Report Issues: [GitHub Issues](https://github.com/bharatvidya/bharatvidya/issues)
-- 💡 Feature Requests: [GitHub Discussions](https://github.com/bharatvidya/bharatvidya/discussions)
-
----
-
-## 🗺️ Roadmap
-
-### Phase 1 (Current) - Core Platform
-- ✅ Offline-first mobile app
-- ✅ Edge AI inference (Gemma-2B)
-- ✅ 12+ regional languages
-- ✅ Teacher content creator
-- ✅ Smart sync system
-
-### Phase 2 (Q2 2026) - Enhanced Features
-- 🔄 Live classes support
-- 🔄 Peer learning tools
-- 🔄 Gamification (badges, leaderboards)
-- 🔄 Parent dashboard
-- 🔄 Advanced analytics
-
-### Phase 3 (Q4 2026) - Platform Expansion
-- 📱 iOS support
-- 🌐 Web platform
-- 📺 Smart TV app
-- 📞 Feature phone integration (USSD/SMS)
-
-### Phase 4 (2027) - AI Advancement
-- 🤖 Personalized learning paths
-- 🎤 Speech recognition
-- ✍️ Handwriting recognition
-- 🎯 Auto-grading system
-
----
-
-## 📈 Success Stories
-
-> "BharatVidya transformed my classroom. I can now create video lessons in minutes, and my students love learning in Tamil!" - **Priya Sharma, Teacher, Tamil Nadu**
-
-> "My children share one phone, but BharatVidya's profile switching makes it easy for each of them to learn at their own pace." - **Rajesh Kumar, Parent, Bihar**
-
-> "The offline mode is a game-changer. I can study during my morning commute without worrying about network issues." - **Amit Patel, Student, Rajasthan**
-
----
-
-## 🌟 Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=bharatvidya/bharatvidya&type=Date)](https://star-history.com/#bharatvidya/bharatvidya&Date)
+- **Requirements Document**: `.kiro/specs/rural-education-video-app/requirements.md`
+- **Design Document**: `.kiro/specs/rural-education-video-app/design.md`
+- **Implementation Tasks**: `.kiro/specs/rural-education-video-app/tasks.md`
 
 ---
 
@@ -683,6 +351,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Made with ❤️ for Rural India**
 
-[Website](https://bharatvidya.org) • [Documentation](https://docs.bharatvidya.org) • [Community](https://discord.gg/bharatvidya)
+*Project Status: In Development*
 
 </div>
