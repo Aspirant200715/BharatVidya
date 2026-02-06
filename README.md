@@ -349,7 +349,7 @@ For detailed technical specifications, please refer to:
 
 <div align="center">
 
-**Made with ❤️ for Rural India**
+**Made for Rural India**
 
 *Project Status: In Development*
 
